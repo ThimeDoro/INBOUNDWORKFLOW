@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คู่มือการปฏิบัติงาน (SOP) : การบันทึกข้อมูล Send2Thai</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --primary-light: #eff6ff;
+      --accent: #d97706;
+      --accent-hover: #b45309;
+      --warning-bg: #fffbeb;
+      --warning-border: #f59e0b;
+      --warning-text: #b45309;
+      --success-bg: #f0fdf4;
+      --success-border: #22c55e;
+      --success-text: #15803d;
+      --info-bg: #f0f9ff;
+      --info-border: #0284c7;
+      --info-text: #0369a1;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px 12px;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* Top Banner */
+    .header-banner {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #ffffff;
+      padding: 24px 20px;
+      position: relative;
+    }
+
+    .badge-doc {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header-banner h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .header-banner p {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      font-weight: 300;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.8rem;
+      color: #e2e8f0;
+    }
+
+    .doc-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .content {
+      padding: 20px 16px;
+    }
+
+    /* Prerequisite Box */
+    .prereq-box {
+      background: var(--warning-bg);
+      border: 1.5px solid var(--warning-border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .prereq-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--warning-text);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .prereq-header svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .prereq-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .prereq-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: #78350f;
+    }
+
+    .prereq-list li::before {
+      content: "➔";
+      position: absolute;
+      left: 0;
+      color: var(--warning-border);
+      font-weight: bold;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin: 24px 0 14px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    /* Steps Layout */
+    .step-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .tool-link-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text);
+      font-family: 'Prompt', sans-serif;
+      word-break: break-all;
+    }
+
+    .tool-link-badge a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .tool-link-badge a:hover {
+      text-decoration: underline;
+    }
+
+    .step-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .instruction-list {
+      padding-left: 20px;
+      font-size: 0.9rem;
+    }
+
+    .instruction-list li {
+      margin-bottom: 6px;
+    }
+
+    .tip-box {
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary);
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.92rem;
+      color: #334155;
+      margin-top: 12px;
+    }
+
+    /* Vector Mockup UI Container */
+    .mockup-ui-wrapper {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      margin: 16px 0 20px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ui-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .ui-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f172a;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .ui-sub-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 16px;
+      font-size: 12px;
+      color: #64748b;
+      background: #ffffff;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toggle-bar-center {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 16px 0;
+    }
+
+    .toggle-pill-box {
+      display: flex;
+      background: #e2e8f0;
+      padding: 4px;
+      border-radius: 30px;
+    }
+
+    .toggle-tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #64748b;
+      background: transparent;
+      border: none;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .toggle-tab-btn.active {
+      background: #ffffff;
+      color: #d97706;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-weight: 600;
+    }
+
+    .ui-form-body {
+      padding: 0 14px 16px 14px;
+    }
+
+    .ui-field-group {
+      margin-bottom: 16px;
+    }
+
+    .ui-label-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 4px;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .ui-input-field {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #334155;
+      background: #ffffff;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .ui-input-field::placeholder {
+      color: #94a3b8;
+    }
+
+    .ui-btn-orange {
+      background-color: #d97706;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Prompt', sans-serif;
+      white-space: nowrap;
+    }
+
+    .callout-box-clean {
+      border: 2px solid #b91c1c;
+      border-radius: 8px;
+      padding: 10px;
+      background: #ffffff;
+    }
+
+    .callout-tag-top {
+      display: inline-flex;
+      align-items: center;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .input-action-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Step Breakdown Detail Cards */
+    .step-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .step-detail-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 0.88rem;
+    }
+
+    .step-detail-num {
+      display: inline-block;
+      background: #ea580c;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 0.78rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 6px;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 12px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      min-width: 480px;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: #ffffff;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f8fafc;
+      font-weight: 600;
+      color: #334155;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .tag-source, .tag-target {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 2px;
+    }
+
+    .tag-source {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+    }
+
+    .tag-target {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    /* Field Definition Cards */
+    .def-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .def-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.88rem;
+    }
+
+    .def-term {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    /* Special Case Boxes */
+    .special-cases {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .case-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 12px;
+      font-size: 0.88rem;
+    }
+
+    .case-card.alert-card {
+      background: #fffbeb;
+      border-color: #fde68a;
+      border-left: 4px solid #d97706;
+    }
+
+    .checklist-container {
+      background: var(--success-bg);
+      border: 1.5px solid var(--success-border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+
+    .checklist-title {
+      color: var(--success-text);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+    }
+
+    .check-item input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #86efac;
+      border-radius: 4px;
+      background: #ffffff;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-item input[type="checkbox"]:checked {
+      background: var(--success-text);
+      border-color: var(--success-text);
+    }
+
+    .check-item input[type="checkbox"]:checked::after {
+      content: "✓";
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .check-item input[type="checkbox"]:checked ~ span {
+      text-decoration: line-through;
+      color: #166534;
+    }
+
+    /* Print & Actions */
+    .action-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-family: 'Prompt', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid var(--border);
+    }
+
+    .btn-primary {
+      background: #ea580c;
+      color: #ffffff;
+    }
+
+    /* Desktop Layout Breakpoints */
+    @media (min-width: 640px) {
+      body { padding: 32px 16px; }
+      .header-banner { padding: 30px 36px; }
+      .header-banner h1 { font-size: 1.6rem; }
+      .content { padding: 32px 36px; }
+      .step-header-wrap { flex-direction: row; align-items: center; }
+      .step-detail-grid { grid-template-columns: repeat(2, 1fr); }
+      .step-detail-item[style*="grid-column"] { grid-column: 1 / -1; }
+      .def-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .input-action-row { flex-direction: row; }
+      .action-bar { flex-direction: row; justify-content: flex-end; }
+      .btn { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  
+  <header class="header-banner">
+    <div class="badge-doc">
+      <span>STANDARD OPERATING PROCEDURE</span>
+    </div>
+    <h1>คู่มือการบันทึกข้อมูล Send2Thai ลงระบบ BOT SHIPPING</h1>
+    <p>แนวทางปฏิบัติงานมาตรฐานสำหรับการตรวจสอบข้อมูลรอบขนส่งและการบันทึกตัดชำระเงิน</p>
+    
+    <div class="doc-meta">
+      <span><strong>รหัสเอกสาร:</strong> SOP-OPS-001</span>
+      <span><strong>รอบการทำงาน:</strong> ทุกครั้งที่มีการชำระเงินเรียบร้อยแล้ว</span>
+      <span><strong>หมวดหมู่งาน:</strong> Inbound</span>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="prereq-box">
+      <div class="prereq-header">
+        <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+        <span>เงื่อนไขสำคัญก่อนเริ่มงาน (Prerequisite)</span>
+      </div>
+      <ul class="prereq-list">
+        <li><strong>หน้าที่ประจำ:</strong> ต้องดำเนินการบันทึกข้อมูล <strong>ทุกครั้งที่มีรอบปิดที่ชำระเงินเข้ามาเรียบร้อยแล้ว</strong></li>
+        <li><strong>เงื่อนไขการบันทึก:</strong> จะเริ่มบันทึกเมื่อ <strong>SHIP ID ชำระเงินเรียบร้อยแล้ว</strong></li>
+      </ul>
+    </section>
+
+    <!-- ข้อมูลฟิลด์และความหมาย -->
+    <section class="step-card">
+      <div class="step-badge">คำอธิบายฟิลด์ข้อมูล & ศัพท์เฉพาะทางโลจิสติกส์</div>
+      <h3 style="margin-top: 8px;">ความหมายของข้อมูลในระบบ Send2Thai และการขนส่ง</h3>
+      
+      <div class="def-grid">
+        <div class="def-item">
+          <div class="def-term">Total Charged</div>
+          <p>จำนวนยอดเงินที่ชำระจริง</p>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Total Net Weight</div>
+          <p>น้ำหนักทั้งหมดของ SHIP ID นั้น</p>
+        </div>
+        <div class="def-item" style="grid-column: 1 / -1; background: #fffbeb; border-color: #fde68a;">
+          <div class="def-term" style="color: #b45309;">Total QBF / CBF (Cubic Feet) — <em>เกร็ดความรู้</em></div>
+          <p style="color: #78350f;">
+            คือ <strong>ปริมาตรของสินค้ารวมทั้งหมดที่มีหน่วยเป็น "ลูกบาศก์ฟุต" (Cu. Ft.)</strong> ใช้คำนวณพื้นที่จัดเก็บและค่าระวางขนส่ง
+          </p>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Tracking Number#</div>
+          <p>ข้อมูล Tracking FedEx ที่ PSA ส่งให้ Send2Thai</p>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Weight</div>
+          <p>น้ำหนักต่อ 1 FedEx Tracking</p>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Image</div>
+          <p>ภาพพัสดุในระบบ (อาจมีหรือไม่มีก็ได้)</p>
+        </div>
+      </div>
+      
+      <div class="tip-box">
+        💡 <strong>หมายเหตุ:</strong> <em>Total Net Weight</em> และ <em>Total QBF</em> สามารถคลาดเคลื่อนได้ตามเงื่อนไขของทางขนส่ง โดยอาจมีผลกับราคาค่าขนส่ง
+      </div>
+    </section>
+
+    <h2 class="section-title">
+      <span>ขั้นตอนการปฏิบัติงาน (Step-by-Step)</span>
+    </h2>
+
+    <article class="step-card">
+      <div class="step-header-wrap">
+        <div class="step-badge">ขั้นตอนที่ 1</div>
+        <div class="tool-link-badge">
+          <i class="fa-solid fa-globe"></i> พื้นที่: <a href="https://send2thai.com/" target="_blank">https://send2thai.com/</a>
+        </div>
+      </div>
+      <h3>ตรวจสอบและดึงข้อมูลจากระบบ Send2Thai</h3>
+      <ol class="instruction-list">
+        <li>เข้าสู่ระบบ <strong>Send2Thai</strong> ผ่านหน้าเว็บ</li>
+        <li>คลิกเลือกเมนู <strong>Invoice</strong></li>
+        <li>ค้นหาและคลิกเลือก <strong>SHIP ID</strong> ของรอบที่ต้องการลงระบบ</li>
+      </ol>
+      <div class="tip-box">
+        💡 <strong>จุดสังเกต:</strong> รายการที่ส่งออกเรียบร้อยแล้วจะมีเครื่องหมาย <strong>✅</strong> แสดงกำกับอยู่
+      </div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-header-wrap">
+        <div class="step-badge">ขั้นตอนที่ 2</div>
+        <div class="tool-link-badge">
+          <i class="fa-solid fa-table"></i> พื้นที่: <strong>Google sheet "Project Alpha"</strong>
+        </div>
+      </div>
+      <h3>นำเข้าข้อมูลลงระบบ BOT SHIPPING</h3>
+      <p style="font-size: 0.9rem; margin-bottom: 14px;">เปิดหน้าต่าง <strong>"ระบบจัดการขนส่ง (SHIPPING)"</strong> แล้วกรอกข้อมูลตามลำดับ:</p>
+      
+      <div class="mockup-ui-wrapper">
+        <div class="ui-header">
+          <div class="ui-title">ระบบจัดการขนส่ง (SHIPPING)</div>
+          <div style="font-size: 16px; color:#475569;"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+
+        <div class="ui-sub-bar">
+          <div>ข้อมูลล่าสุด: กำลังโหลด...</div>
+          <div style="color:#0284c7; font-weight:500;"><i class="fa-solid fa-arrows-rotate"></i> รีเฟรช</div>
+        </div>
+
+        <div class="toggle-bar-center">
+          <div style="text-align: center;">
+            <div style="color: #b91c1c; font-size: 13px; font-weight: 700; margin-bottom: 6px; font-family:'Prompt';">
+              1. เลือกขนส่ง Send2Thai
+            </div>
+            <div class="callout-box-clean" style="display: inline-block; padding: 3px; border-radius: 30px;">
+              <div class="toggle-pill-box">
+                <button type="button" class="toggle-tab-btn"><i class="fa-solid fa-plane"></i> FedEx</button>
+                <button type="button" class="toggle-tab-btn active"><i class="fa-solid fa-box"></i> Send2Thai</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-form-body">
+          <div class="ui-field-group">
+            <div class="ui-label-title" style="color:#d97706;">Ship ID (Round)</div>
+            <div class="callout-box-clean">
+              <div class="callout-tag-top">2. กรอก SHIP ID</div>
+              <input type="text" class="ui-input-field" placeholder="เช่น 543210" readonly>
+            </div>
+          </div>
+
+          <div class="ui-field-group">
+            <div class="ui-label-title">ค่าส่งก้อนใหญ่ (฿)</div>
+            <div class="callout-box-clean">
+              <div class="callout-tag-top">3. กรอกราคารวมที่จ่ายจริง</div>
+              <input type="text" class="ui-input-field" value="0.00" readonly>
+            </div>
+          </div>
+
+          <div class="ui-field-group">
+            <div class="ui-label-title">ค้นหาเลข Tracking In (B2TH.1)</div>
+            <div class="callout-box-clean">
+              <div style="margin-bottom: 12px;">
+                <div class="callout-tag-top">4. นำเลข Tracking มาค้นหา</div>
+                <div class="input-action-row">
+                  <input type="text" class="ui-input-field" placeholder="พิมพ์เลข Tracking อย่างน้อย 3 ตัว..." readonly>
+                  <button type="button" class="ui-btn-orange">ค้นหา</button>
+                </div>
+              </div>
+
+              <div class="input-action-row">
+                <div style="flex: 1;">
+                  <div class="callout-tag-top">5. กรอกน้ำหนัก</div>
+                  <input type="text" class="ui-input-field" placeholder="นน. (Kg)" readonly>
+                </div>
+                <div>
+                  <div class="callout-tag-top">6. เพิ่มรายการ</div>
+                  <button type="button" class="ui-btn-orange" style="width: 100%;">เพิ่มรายการนี้</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px; margin: 12px 0; flex-wrap: wrap;">
+            <span style="background:#8795a1; color:#fff; padding:3px 8px; border-radius:4px; font-size:11px;">+ สมุดรายเดือน</span>
+            <span style="background:#8795a1; color:#fff; padding:3px 8px; border-radius:4px; font-size:11px;">+ รายการไม่ระบุ</span>
+          </div>
+
+          <div style="background:#eef2f6; border-radius:6px; padding:8px; text-align:center; font-size:12.5px; font-weight:600; color:#334155; margin-bottom:12px;">
+            น้ำหนักรวม: 0 Kg
+          </div>
+
+          <div class="callout-box-clean" style="text-align: center;">
+            <div class="callout-tag-top" style="margin-bottom: 6px;">7. กดบันทึก</div>
+            <button type="button" style="width:100%; background-color:#e67e22; color:#fff; border:none; padding:10px; border-radius:6px; font-size:15px; font-weight:600; font-family:'Prompt'; cursor:pointer;">
+              บันทึกข้อมูล (Save)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail-grid">
+        <div class="step-detail-item">
+          <span class="step-detail-num">1</span> <strong>เลือกขนส่ง:</strong> กดเลือกแท็บ Send2Thai
+        </div>
+        <div class="step-detail-item">
+          <span class="step-detail-num">2</span> <strong>กรอก SHIP ID:</strong> ระบุในช่อง Ship ID (Round)
+        </div>
+        <div class="step-detail-item">
+          <span class="step-detail-num">3</span> <strong>กรอกค่าส่ง:</strong> ระบุยอดจริงในช่อง ค่าส่งก้อนใหญ่ (฿)
+        </div>
+        <div class="step-detail-item">
+          <span class="step-detail-num">4</span> <strong>ค้นหารายการ:</strong> ใส่เลข Tracking แล้วกดปุ่มค้นหา
+        </div>
+        <div class="step-detail-item">
+          <span class="step-detail-num">5</span> <strong>ใส่น้ำหนัก:</strong> กรอกในช่อง นน. (Kg)
+        </div>
+        <div class="step-detail-item">
+          <span class="step-detail-num">6</span> <strong>เพิ่มรายการ:</strong> กดปุ่ม [เพิ่มรายการนี้]
+        </div>
+        <div class="step-detail-item" style="grid-column: 1 / -1;">
+          <span class="step-detail-num">7</span> <strong>บันทึกข้อมูล:</strong> ตรวจสอบน้ำหนักรวม แล้วกด [บันทึกข้อมูล (Save)]
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 45%;">ข้อมูลต้นทาง (Send2Thai)</th>
+              <th style="width: 55%;">ช่องที่ต้องกรอก (BOT SHIPPING)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag-source">SHIP ID</span><br><small style="color:var(--text-muted);">รหัสรอบจัดส่ง</small></td>
+              <td><span class="tag-target">Ship ID (Round)</span></td>
+            </tr>
+            <tr>
+              <td><span class="tag-source">Total Charged</span><br><small style="color:var(--text-muted);">ยอดเงินที่ชำระจริง</small></td>
+              <td><span class="tag-target">ค่าส่งก้อนใหญ่ (฿)</span></td>
+            </tr>
+            <tr>
+              <td><span class="tag-source">Tracking Number#</span><br><small style="color:var(--text-muted);">Tracking FedEx</small></td>
+              <td><span class="tag-target">ค้นหาเลข Tracking In (B2TH.1)</span></td>
+            </tr>
+            <tr>
+              <td><span class="tag-source">Weight</span><br><small style="color:var(--text-muted);">น้ำหนักต่อชิ้น</small></td>
+              <td><span class="tag-target">นน. (Kg)</span></td>
+            </tr>
+            <tr>
+              <td><span class="tag-source">Total Net Weight</span><br><small style="color:var(--text-muted);">น้ำหนักรวมทั้งรอบ</small></td>
+              <td><small style="color:var(--text-muted);">เทียบกับ น้ำหนักรวม (Kg)</small></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="special-cases">
+        <div class="case-card alert-card">
+          <strong style="color: #b45309;"><i class="fa-solid fa-triangle-exclamation"></i> ไม่พบ Tracking ในระบบ:</strong>
+          <ol style="margin: 6px 0 0 0; padding-left: 18px; color: #78350f;">
+            <li>ส่งให้ผู้ดูแลระบบตรวจสอบ หากมีข้อมูลแต่ BOT ไม่ดึง สามารถบันทึกแบบ <u>Manual</u> ได้</li>
+            <li>หากไม่มีข้อมูลจริง ให้ใส่น้ำหนักและกด <strong>[ + รายการไม่ระบุ ]</strong> แล้ว Note/ใส่สีใน Google Sheet โดยนำเลข Tracking ที่ไม่พบข้อมูลใส่ในคอลัมน์ typ เพื่อให้ตอนที่ unbox สินค้า จะได้รู้ว่าเลข Tracking ใดเป็นรายการที่ไม่ระบุ</li>
+          </ol>
+        </div>
+        <div class="case-card">
+          <strong>📘 กรณีมีสมุดรายเดือน:</strong> ใส่น้ำหนักและเลือกปุ่ม <strong>[ + สมุดรายเดือน ]</strong> ก่อนกดบันทึก
+        </div>
+      </div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-badge">ขั้นตอนที่ 3</div>
+      <h3>ปรับปรุงสถานะและข้อมูลการชำระเงิน</h3>
+      <p style="font-size: 0.9rem; margin-bottom: 8px;">ตั้งค่าข้อมูล 3 ส่วนสุดท้ายในระบบ:</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>หัวข้อ</th>
+              <th>ค่าที่ต้องระบุ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Timestamp</strong></td>
+              <td>ระบุเป็น <strong>"วันที่ที่มีการจ่ายเงินจริง"</strong></td>
+            </tr>
+            <tr>
+              <td><strong>2. Status</strong></td>
+              <td>เปลี่ยนเป็น <span class="tag-target" style="color:#0f172a; background:#e2e8f0; border-color:#cbd5e1;">LA</span></td>
+            </tr>
+            <tr>
+              <td><strong>3. ช่องทางชำระเงิน</strong></td>
+              <td>เลือกเป็น <span class="tag-target" style="color:#0f172a; background:#e2e8f0; border-color:#cbd5e1;">บัญชีบริษัท</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <section class="checklist-container">
+      <div class="checklist-title">
+        <span>✅ รายการตรวจสอบความถูกต้องก่อนจบงาน (Pre-flight Checklist)</span>
+      </div>
+      
+      <label class="check-item">
+        <input type="checkbox">
+        <span>ตรวจสอบว่า SHIP ID ชำระเงินเรียบร้อยแล้ว</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox">
+        <span>รายการใน Send2Thai มีเครื่องหมาย ✅ ครบถ้วน</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox">
+        <span>กรณีไม่พบ Tracking ได้แจ้งผู้ดูแลหรือระบุในคอลัมน์ typ พร้อม Note ในชีตแล้ว</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox">
+        <span>จำนวน Tracking และน้ำหนักรวม (Kg) ตรงกับ Send2Thai</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox">
+        <span>ระบุ Timestamp, Status (LA) และบัญชีบริษัท ครบถ้วน</span>
+      </label>
+    </section>
+
+    <div class="action-bar">
+      <button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ สั่งพิมพ์ / PDF</button>
+      <button type="button" class="btn btn-primary" onclick="resetChecklist()">🔄 ล้าง Checklist</button>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  function resetChecklist() {
+    const checkboxes = document.querySelectorAll('.checklist-container input[type="checkbox"]');
+    checkboxes.forEach(cb => cb.checked = false);
+  }
+</script>
+
+</body>
+</html>
